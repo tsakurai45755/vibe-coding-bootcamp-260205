@@ -1,0 +1,216 @@
+.error-message {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border-left: 4px solid #fc8181;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(252, 129, 129, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-content {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.error-icon {
+  flex-shrink: 0;
+  color: #e53e3e;
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.error-text {
+  flex: 1;
+}
+
+.error-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #742a2a;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-description {
+  font-size: 0.95rem;
+  color: #9b2c2c;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 装飾的な要素 */
+.error-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+  pointer-events: none;
+  opacity: 0.15;
+  overflow: hidden;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #e53e3e;
+}
+
+.decoration-circle-1 {
+  width: 80px;
+  height: 80px;
+  top: -20px;
+  right: -10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.decoration-circle-2 {
+  width: 50px;
+  height: 50px;
+  top: 40px;
+  right: 60px;
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.decoration-circle-3 {
+  width: 30px;
+  height: 30px;
+  bottom: 10px;
+  right: 20px;
+  animation: float 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .error-message {
+    padding: 1rem 1.25rem;
+  }
+
+  .error-content {
+    gap: 0.75rem;
+  }
+
+  .error-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .error-title {
+    font-size: 0.95rem;
+  }
+
+  .error-description {
+    font-size: 0.875rem;
+  }
+
+  .error-decoration {
+    width: 120px;
+  }
+
+  .decoration-circle-1 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .decoration-circle-2 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .decoration-circle-3 {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-message {
+    padding: 0.875rem 1rem;
+  }
+
+  .error-content {
+    gap: 0.65rem;
+  }
+
+  .error-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .error-title {
+    font-size: 0.9rem;
+  }
+
+  .error-description {
+    font-size: 0.8125rem;
+  }
+
+  .error-decoration {
+    display: none;
+  }
+}
+
+/* アクセシビリティ: 縮小モーション設定 */
+@media (prefers-reduced-motion: reduce) {
+  .error-message,
+  .error-icon,
+  .decoration-circle-1,
+  .decoration-circle-2,
+  .decoration-circle-3 {
+    animation: none;
+  }
+}
+
+/* ハイコントラストモード対応 */
+@media (prefers-contrast: high) {
+  .error-message {
+    border: 2px solid #e53e3e;
+    background: #fff5f5;
+  }
+
+  .error-title,
+  .error-description {
+    color: #000000;
+  }
+}
