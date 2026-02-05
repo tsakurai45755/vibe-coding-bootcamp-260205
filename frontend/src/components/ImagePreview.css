@@ -1,0 +1,168 @@
+.image-preview {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.preview-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  background-color: #f7fafc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.preview-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+  background-color: #e2e8f0;
+}
+
+.remove-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #e53e3e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.remove-button:hover {
+  background-color: #e53e3e;
+  color: white;
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.remove-button:active {
+  transform: scale(1) rotate(90deg);
+}
+
+.remove-button:focus {
+  outline: 2px solid #e53e3e;
+  outline-offset: 2px;
+}
+
+.preview-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 2rem 1.5rem 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.preview-container:hover .preview-overlay {
+  opacity: 1;
+}
+
+.preview-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+}
+
+.check-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.preview-text {
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .preview-image {
+    max-height: 400px;
+  }
+
+  .remove-button {
+    width: 36px;
+    height: 36px;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .remove-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .preview-overlay {
+    padding: 1.5rem 1rem 0.75rem;
+  }
+
+  .check-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .preview-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .preview-image {
+    max-height: 300px;
+  }
+
+  .remove-button {
+    width: 32px;
+    height: 32px;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .remove-button svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* アクセシビリティ: 縮小モーション設定 */
+@media (prefers-reduced-motion: reduce) {
+  .image-preview,
+  .preview-container,
+  .remove-button,
+  .preview-overlay {
+    animation: none;
+    transition: none;
+  }
+}
