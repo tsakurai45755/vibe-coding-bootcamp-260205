@@ -130,7 +130,7 @@ def generate_daily_report(image_bytes: bytes) -> str:
         logger.error(f"Authentication error: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail="Azure OpenAI APIの認証に失敗しました。API키の設定を確認してください。"
+            detail="Azure OpenAI APIの認証に失敗しました。APIキーの設定を確認してください。"
         )
     except openai.error.RateLimitError as e:
         logger.error(f"Rate limit error: {str(e)}")
