@@ -1,0 +1,112 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.panel {
+  border: 1px solid GrayText;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.panelHeader {
+  margin-bottom: 8px;
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 16px;
+}
+
+.dropzone {
+  border: 1px dashed GrayText;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.dropzoneText {
+  margin: 0 0 4px;
+}
+
+.dropzoneHint {
+  margin: 0 0 12px;
+  color: GrayText;
+  font-size: 12px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.fileInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.preview {
+  margin: 12px 0 0;
+}
+
+.previewImg {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid GrayText;
+}
+
+.muted {
+  color: GrayText;
+  font-size: 12px;
+}
+
+.error {
+  border: 1px solid GrayText;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  color: GrayText;
+}
+
+.textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+}

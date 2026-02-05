@@ -20,6 +20,13 @@
 - コピー（Clipboard API）
 - エクスポート（ブラウザダウンロード）
 
+#### フロント実装（MVP）補足
+- 開発サーバ: Vite（`http://localhost:3000` 固定）
+- バックエンドURL: `VITE_API_BASE_URL`（未指定時は `http://localhost:8000`）
+- 入力制約（任意・フロント側の早期バリデーション）
+  - `VITE_MAX_IMAGE_BYTES`（未指定時: 5MB）
+  - `VITE_REQUEST_TIMEOUT_MS`（未指定時: 60000ms）
+
 ### 2.2 バックエンド
 - `/healthz`（ヘルスチェック）
 - `/api/generate`（画像→Markdown生成）
@@ -100,6 +107,19 @@
   - `REQUEST_TIMEOUT_SECONDS`
   - `IMAGE_MAX_SIDE_PX`
 
+### 8.x .env（開発用）
+- バックエンドは `backend/.env` を読み込める（環境変数も併用可）
+- `.env` はリポジトリにコミットしない（`.env.example` を配布）
+
+### 8.1 デフォルト値（MVP実装用）
+- `CORS_ALLOW_ORIGINS`: `http://localhost:3000`
+- `MAX_IMAGE_BYTES`: `5242880`（5MB）
+- `REQUEST_TIMEOUT_SECONDS`: `60`
+- `IMAGE_MAX_SIDE_PX`: `1536`
+
+### 8.2 対応画像形式（MVPデフォルト）
+- `image/png`, `image/jpeg`, `image/webp`
+
 ## 9. エラー行列
 | 事象 | 検知箇所 | 応答 | フロント表示 | 備考 |
 |---|---|---|---|---|
@@ -139,3 +159,7 @@ sequenceDiagram
 - azure.instructions.md（ワークスペース外）の運用ルール取り込み
 - App Service デプロイ方式とログ/監視
 - 一時メモリ保持の対象（Markdownのみか、保持しないか）
+
+## 13. 実装時の注意（暫定）
+- Azure運用ルール文書がリポジトリ外にある場合、開発環境から参照できないことがある
+  - その場合でも、APIキーや画像生データをログ出力しないこと、環境変数で設定可能であることを最低限担保する
